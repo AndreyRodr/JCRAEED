@@ -1,0 +1,54 @@
+# Notação Assintótica
+  - Definição
+    - Forma de <medir> como o <tempo de execução> ou o <espaço requerido (memória)> de seu algoritmo <cresce> à medida que o <tamanho da entrada> cresce
+  - O que é <tamanho de entrada>?
+    - Quantiade de elementos que seu algoritmo recebe de entrada e processa
+      - Função que recebe um vetor e retorna o maior item: <n>.
+
+# Perguntas da análise
+  - Ao dobrar o n, o n° de passos dobra?
+    - Ou não muda, ou vai além?
+  - Ao dobrar o n, a memória dobra?
+    - Ou não muda, ou vai além?
+  - E o que é <medir>?
+    - Obter a <ordem de grandeza> da quantidade de passos executados de acordo com o tamanho da entrada: não tem unidade de tempo/espaço
+
+  # EXEMPLO:
+    function sum_elements(array, n):
+        sum = 0               # -> 1
+        for i=0 to n-1        # -> n+1 (tem a falha)
+            sum += array[i]   # -> n
+        return sum            # -> 1
+
+    # Resultado: t(n) = 2.n + 3
+
+# Aonde deve estar sua atenção
+  - Nos laços
+    - Eles são os trechos que possuem o maior número de passos de um algoritmo
+  - Para n muito grande
+    - Em 2n + 3, se n for 1 trilhão, a constante (3) e o termo multiplicativo (2) não são tão importantes
+    - Logo, a ordem de grandeza da complexidade do algoritmo é O(n)
+
+# Passos para medir a complexidade
+  - Focar nos loops
+    - é onde está o maior número de operações
+  - Verificar a complexidade de terceiros
+    - Outros métodos podem influenciar seu algoritmo
+  - Focar no termo de maior grau
+    - Ignore constantes e termos de menor grau
+
+  # EXEMPLO 2:
+    function print_elem(array, n, i):
+        print("Item array[i]:")    # -> 1
+        print(array[i])            # -> 1
+
+  # Resultado: t(n) = 2 ou 0(1)
+
+# Big-O Notation
+  - O que representa
+    - O limite superior do tempo de execução de um algoritmo (pior caso)
+      - Maior número de operações executadas ou mais tempo de execução
+  - Melhor caso: Big-Ω
+
+# Qual o objetivo?
+  - Codificar algoritmos com A MENOR COMPLEXIDADE POSSIVEL para os problemas.
