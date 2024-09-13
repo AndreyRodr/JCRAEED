@@ -1,0 +1,45 @@
+# Contagem de instruções
+  - Objetivo
+    - Contar as intruções executadas com problemas de tamanhos diferentes
+  - Duas classes de instruções:
+    - Instruções que executam o mesmo número de vezes, independentemente do tamanho do problema
+    - Instruções cuja contagem de execução varia de acordo com o tamanho do problema
+  # EXEMPLO:
+    '''Prints the number of iterations for problem sizes that double, with nested loop.'''
+    problemSize = 1000
+    print("%12s%15s" % ("Problem Size","Iterations"))
+    for count in range(5):
+        number = 0
+        work = 1 # Algorithm's start
+        for j in range(problemSize):
+            for k in range(problemSize):
+                number += 1
+                work += 1
+                work -= 1
+        print("%12d%15d" % (problemSize, number)) # Algorithm's stop
+        problemSize *= 2
+  # EXEMPLO COM O Fibonacci
+    '''Prints the number of calls of a recursive Fibonacci function with problem sizes that double.'''
+    counter = 0
+    def fib(n):
+        global counter
+        counter += 1 # Counts the number of Fibonnaci function calls
+        if n < 3:
+            return 1
+        else:
+            return fib(n-1) + fib(n - 2)
+    problemSize = 2
+    print("%12s%15s" % ("Problem Size","Calls"))
+    for count in range(5):
+        fib(problemSize) # Algorithm's start
+        print("%12d15s" % (problemSize, counter)) # Algorithm's stop
+        problemSize *= 2
+
+# Indo além: medir a memória
+  - Além de tempo e instruções
+    - É preciso observar taxa de crescimento potencial
+  - Diferença dos algoritmos
+    - Alguns requerem a mesma quantidade de memória para resolver qualquer problema
+    - Outros exigem mais memória à medida que o tamanho do problema aumenta
+
+
