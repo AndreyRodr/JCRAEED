@@ -1,0 +1,47 @@
+# Medindo eficiência
+  - Fatores para escolha de algoritmos
+    - Espaço: algoritmo que usa mais ou menos memória
+    - Tempo: algoritmo que gasta mais ou menos tempo de execução
+    - Espaço x Tempo.
+      - Um algoritmo pode ser projetado para obter tempos de execução mais rápidos ao custo de usar espaço extra (memória) ou vice-versa
+
+# Processo para medir tempo
+  - Uso do relógio do computador
+    - Processo denominado Avaliação Comparativa ou Perfilamento
+  - Opções
+    - Obter o tempo para conjuntos de dados diferentes de mesmo tamanho e calcular tempo médio
+    - Obter o tempo para conjuntos de dados cada vez maiores
+  # EXEMPLO:
+  '''Print execution times for problem sizes that double, using a single loop.'''
+  import time
+  problemSize = 5000
+  print("%12s%16s" % ("Problem Size","Seconds"))
+  for count in range(5):
+      start = time.time() # Start of the algorithm
+      work = 1
+      for x in range(problemSize):
+          work += 1
+          work -= 1
+      elapsed = time.time() - start # End: processing time
+      print("%12d%16.3f" % (problemSize, elapsed))
+      problemSize *= 2
+  # MUDANÇA NO ALGORITMO:
+  '''Print execution times for problem sizes that double, using a single loop.'''
+  import time
+  problemSize = 5000
+  print("%12s%16s" % ("Problem Size","Seconds"))
+  for count in range(5):
+      start = time.time() # Start of the algorithm
+      work = 1
+      for j in range(problemSize):
+          for k in range(problemSize):
+              work += 1
+              work -= 1
+    elapsed = time.time() - start # End: processing time
+    print("%12d%16.3f" % (problemSize, elapsed))
+    problemSize *= 2
+
+  # Problemas deste métodos
+    - Apesar das previsões precisas...
+      - Diferetes plataformas de hardware têm diferentes velocidades de processamento: os tempos de execução de um algoritmo variam entre uma máquina e outra
+      - É impraticável determinar o tempo de execução de alguns algoritmos com conjuntos de dados muito grandes
