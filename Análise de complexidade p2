@@ -1,0 +1,56 @@
+# Exemplo 3
+  function find_elemnt(array, n, elem):
+      for i=0 to n-1:
+          if array[i] == elem:
+              return True                      # array = 10,11,12,13,14,15,16
+      return False                             # Se elem = 12 -> 3 execuções   Se elem = 99 -> 7 execuções
+
+    # Pior caso: linha 3 executada n vezes   -> 0(n)
+    # Melhor caso: executa 1 vez             -> Ω(1)
+# Exemplo 4
+  function find_elementM(mat, m, n, elem):
+      for i=0 to m-1:
+          for j=0 to n-1:
+              if mat[i][j] == elem:
+                  return True
+      return False
+                                                # COMPLEXIDADE depende dos elementos de mat
+      # Pior caso: executa m.n vezes           -> O(m.n) ou O(n²)
+      # Melhor caso: executa 1 vez             -> Ω(1)
+
+# Exemplo 5
+  function reverse(array,n)
+      start = 0                            # COMPLEXIDADE não tem pior ou melhor caso: executa igual
+      end = n-1
+      while(start < end):                  # Quantas trocas aconteceram?
+          aux = array[start]               # n/2
+          array[start] = array [end]       # Logo, O(n)
+          array[end] = aux
+          start += 1
+          end -= 1
+
+# Exemplo 6
+  def average_median(array):
+      n = len(array)
+      average = 0.0
+      for i in range(n):
+          average += array[i]
+      average /= n
+
+      arraySort = sorted(array)
+      if n%2 == 0:
+          med1 = arraySort[n//2]
+          med2 = arraySort[n//2-1]
+          median = (med1+med2)/2
+      else:
+          median = arraySort[n//2]
+      return average, median
+# Exemplo de uso
+array = 12, 50, 5, 28, 5
+n = 5
+average = 20
+
+# Para a média, o algoritmo percorre todo o array, logo, O(n)
+# Para a mediana, o algoritmo usa o sorted, que implementa um algoritmo de ordenação chamado timsort, com O(n.logn)
+# Assim, n + n.logn e, como logo >= 1, n.logn é a maior ordem, ou seja, O(n.logn)
+                                      
