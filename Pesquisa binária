@@ -1,0 +1,28 @@
+Algoritmo de pesquisa binária
+
+  - Só executa em vetores ordenados
+  - Procedimento:
+      - Vetor é dividido ao meio
+      - Número do meio é comparado ao procurado
+          - Se forem iguais, termina
+          - Se procurado for menor que o meio: esquerda
+          - Se procurado for maior que o meio: direita
+# Exemplo 1
+def binarySearch(target, sortedList):
+    left = 0
+    right = len(sortedList) - 1
+    while left <= right:
+        midpoint = (left + right) // 2
+        if target == sortedList[midpoint]:
+            return midpoint
+        elif target < sortedList[midpoint]:
+            right = midpoint - 1
+        else:
+            left = midpoint + 1
+    return - 1
+numbers = 1,3,5,7,9
+answer = binarySearch(int(input("Enter a number: ")), numbers)
+if answer == -1:
+    print("Number not found.")
+else:
+    print(f"Number found in position: {answer}")
