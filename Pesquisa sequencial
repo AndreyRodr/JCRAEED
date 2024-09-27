@@ -1,0 +1,58 @@
+Algoritmo de pesquisa sequencial
+  - Roda em vetor ordenado ou não
+  - Vetor não ordenado
+    - Busca até que o dado seja encontrado ou se chegar ao fim do vetor
+  - Vetor ordenado
+    - Busca até que o dado seja encontrado e enquanto for maior que o número do vetor
+
+# Exemplo 1
+def sequentialSearchNO(target, list):
+    """Returns the position of the target item if found, or -1 otherwise"""
+    position = 0
+    while position < len(list):
+        if target == list[position]:
+            return position
+        position += 1
+    return -1
+numbers = 5,3,1,8,2
+answer = sequentialSearchNO(int(input("Enter a number: ")),numbers)
+if answer == -1:
+    print("Number not found")
+else:
+    print(f"Number found in position: {answer}")
+
+# Exemplo 2
+def sequentialSearchO(target,list):
+    """Returns the position of the target item if found, or -1 otherwise"""
+    position = 0
+    while position < len(list) and target >= list[position]:
+        if target == list[position]:
+            return position
+        position += 1
+    return -1
+numbers = 1,3,5,7,9
+answer = sequentialSearchO(int(input("Enter a number: ")),numbers)
+if answer == -1:
+    print("Number not found.\n")
+else:
+    print(f"Number found in position {answer}")
+
+# Algoritmo de pesquisa sequencial
+  - Pior caso
+    - Número procurado é o último elemento do vetor ou não se encontra no vetor: O(n)
+  - Melhor caso
+    - Número procurado é o primeiro elemento do vetor: Ω(1)
+
+# Exemplo 3
+def indexOfMin(list):
+    """Returns the minimum item index"""
+    minIndex = 0
+    currentIndex = 1
+    while currentIndex < len(list):
+        if list[currentIndex] < list[minIndex]:
+            minIndex = currentIndex
+        currentIndex += 1
+    return minIndex
+numbers = 5,3,1,8,2
+answer = indexOfMin(numbers)
+print(f"Position of the lowest index: {answer}")
