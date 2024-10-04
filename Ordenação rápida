@@ -1,0 +1,57 @@
+# Revendo os casos
+
+- Melhor caso
+  - Algoritmo faz a menor quantidade de trabalho
+  - Qual é a complexidade do melhor caso?
+- Pior caso
+  - Algoritmo faz a maior parte do trabalho
+  - Qual é a complexidade do pior caso?
+- Caso médio
+  - Algoritmo faz uma quantidade normal de trabalho
+  - Qual é a complexidade do caso típico?
+
+# Ordenação comum x rápida
+  - Estratégia
+    - Dividr e conquistar: Cada algoritmo divide a lista em listas menores que são ordenadas recursivamente
+  - Situação ideal
+    - Se o número das subdivisões for log(n) e a quantidade  de trabalho necessária para reorganizar os dados em cada subdivisão for n, então a complexidade total de tal algoritmo de ordenação será O(n.log(n))
+
+# quickSort
+
+  - Funcionamento
+    - O vetor é particionado em 2 de modo recursivo até que o vetor fique com apenas 1 elemento
+    - É semelhante ao mergeSort
+
+def swap(list, i, j):
+    """ Swaps the items in positions i and j."""
+    # Equvalent to list[i], list[j] = list[j], list[i], but the following code shows what is actually happening
+    temp = list[i]
+    list[i] = list[j]
+    list[j] = temp
+
+def partition(list, left, right):
+    middle = (left + right)//2 # Find the pivot and exchange it for the last item
+    pivot = list[middle]
+    list[middle] = list[right]
+    list[right] = pivot
+    boundary = left # Sets the limit point for the first position
+    for index in range(left, right): # Move items smaller than the pivot to the left
+        if list[index] < pivot:
+            swap(list, index, boundary)
+            boundary += 1
+        swap(list, right, boundary) # Swap pivot item and boundary item
+        return boundary
+
+def quicksortHelper(list, left, right):
+    if left < right:
+        pivotLocation = partition(list, left, right)
+        quicksortHelper(list, left, pivotLocation - 1)
+        quicksortHelper(list, pivotLocation + 1, right)
+
+def quicksort(list):
+    quicksortHelper(list, 0, len(list) - 1)
+
+numbers = [5,3,1,8,2]
+print(numbers)
+quicksort(numbers)
+print(numbers)
