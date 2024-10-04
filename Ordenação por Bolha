@@ -1,0 +1,36 @@
+<bubbleSort modificado>
+
+# Funcionamento
+  - São efetuadas comparações em um vetor de tamanho n
+  - Cada elemento da posição i será comparado com o elemento da posição i+1
+    - Quando a ordenação procurada é encontrada, a troca será efetuada
+  - Serão executados 2 laços:
+    - Um laço com a quantidade de elemtnos e enquanto houver trocas
+    - E outro, dentro deste, que percorre da primeira à penúltima posição
+
+<bubbleSort modificado (crescente)>
+
+def swap(list, i, j):
+    """ Swaps the items in positions i and j."""
+    # Equvalent to list[i], list[j] = list[j], list[i], but the following code shows what is actually happening
+    temp = list[i]
+    list[i] = list[j]
+    list[j] = temp
+
+def bubbleSortWithTweak(list):
+    n = len(list)
+    while n > 1:
+        swapped = False
+        i = 1
+        while i < n:
+            if list[i] < list[i - 1]: # Exchange if necessary
+                swap(list, i, i - 1)
+                swapped = True
+            i += 1
+        if not swapped: return # Returns if there are no exchanges
+        n -= 1
+
+numbers = [5,3,1,8,2]
+print(numbers)
+bubbleSortWithTweak(numbers)
+print(numbers)
