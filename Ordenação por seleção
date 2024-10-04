@@ -1,0 +1,46 @@
+<selectionSort>
+
+# Funcionamento:
+  - Cada número do vetor, a partir do primeiro, será eleito e comparado com o menor ou maior, dentre os que estão à direita do eleito
+  - Procura-se um número menor (crescente) ou maior (decrescente) que o eleito
+  - Quando satisfaz as condições de ordenação, este trocará de posição com o eleito.
+      - Todos à esquerda do eleito estarão ordenados
+        - O número eleito é i e à direita são i+1 a n-1
+
+# Função de troca
+  - Cada uma das funções de ordenação do Python opera em uma lista de inteiros e usa uma função swap para trocar as posições de dois itens da lista
+
+def swap(list, i, j):
+    """ Swaps the items in positions i and j."""
+    # Equvalent to list[i], list[j] = list[j], list[i], but the following code shows what is actually happening
+    temp = list[i]
+    list[i] = list[j]
+    list[j] = temp
+
+def selectionSort(list):
+    i = 0
+    while i < len(list) - 1 # Does n-1 searches
+        minIndex = i # for the smallest
+        j = i + 1
+        while j < len(list): # Start a search
+            if list[j] < list[minIndex]:
+                minIndex = j
+            j += 1
+        if minIndex != i:  # exchange if necessary
+            swap(list, minIndex, i)
+        i += 1
+
+numbers = [5,3,1,8,2]
+print(numbers)
+selectionSort(numbers)
+print(numbers)
+
+
+
+
+
+
+
+
+
+00
