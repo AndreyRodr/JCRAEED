@@ -1,0 +1,194 @@
+# node.py file
+
+"""Class to represent a node in a simple linked list."""
+class Node():
+    """Node class"""
+    def __init__(self, data, next = None):
+        """Standart Mode"""
+        self.data = data
+        self.next = next
+
+# linkedUnorderedList.py file
+
+"""Class to represent a simple unordered linked list"""
+from node import Node
+
+class UnorderedLinkedList():
+    """Class to simple linked list"""
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    
+    def isEmpty(self):
+        if self.head == None:
+            return True
+        return False
+    
+    def push(self, new_data):
+        """Function to insert a new node at the beginning"""
+        
+        new_node = Node(new_data)
+
+        if self.isEmpty():
+            self.head == new_node
+            self.tail == new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+
+    def append(self, new_data):
+        """ Function to append a new node at the end"""
+        new_node = Node(new_data)
+
+        if self.isEmpty():
+            self.head = new_node  
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+
+    def insertAfter(self, prev_node, new_data):
+        """Function to insert a new node after the given prev_node"""
+
+        if prev_node is None:
+            print("The given previous node must inLinkedList")
+            return
+
+        new_node = Node(new_data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+
+    def printList(self):
+        """Function to print the linked list"""
+        if self.isEmpty():
+            print("Empty list")
+        else:
+            temp = self.head
+            while (temp):
+                print(temp.data + " ",end="")
+                temp = temp.next
+            print()
+
+    def searchNode(self, data):
+        """Function to search a node"""
+
+        if self.isEmpty():
+            print("Empty list")
+        else:
+            temp = self.head
+
+            while(temp):
+                if temp.data == data:
+                    return temp
+                temp = temp.next
+            return None
+
+    def pop(self):
+        """Function to remove item at the begining"""
+
+        if self.isEmpty():
+            print("Empty list")
+        else:
+            self.head = self.head.next
+
+    def popEnd(self):
+        """Function to remove item at the end"""
+
+        if self.isEmpty():
+            print("Empty list")
+        else:
+            penult = self.head
+            last = self.head
+            while last.next:
+                penult = last
+                last = last.next
+            penult.next = None
+
+    def deleteNode(self, key):
+        """Function to remove item given a key"""
+
+        if self.isEmpty():
+            print("Empty list")
+        else:
+            temp = self.head
+
+            if temp is not None:
+                if temp.data == key:
+                    self.head = temp.next
+                    temp = None
+                    return
+            while temp is not None:
+                if temp.data == key:
+                    break
+                prev = temp
+                temp = temp.next
+
+            if temp == None:
+                return
+
+            prev.next = temp.next
+            temp = None
+
+    def clear(self):
+        """Function to clear all items in the list"""
+
+        if self.isEmpty():
+            print("Empty list")
+        else:
+            self.head = None
+
+# main.py file
+
+from linkedUnorderedList import UnorderedLinkedList
+
+def menu():
+    """User's options"""
+    option =- 1
+
+    while(option < 0 or option > 9):
+        print("\n1 - Insert a new node at the beginning\n" + "2 - Append a new node at the end.\n" + "3 - Insert a new node after the given prev_node.\n" + "4 - Print the linked list.\n" + "5 - Search a node.\n" + "6 - Delete a node at the begining.\n" + "7 - Delete a node at the end.\n" + "8 - Delete a node given a key.\n" + "9 - Clear all list.\n" + "0 - Exit.\n")
+        option = int(input("Enter your option: "))
+        if (option < 0 or option > 9):
+            print("\tInvalid option! Enter again.")
+    return option
+
+def main():
+    print("### Simple Unordered Linked List ###\n")
+    choice = 100
+
+    # Start with the empty list
+    myList = UnorderedLinkedList()
+
+    while choice != 0:
+        choice = menu()
+
+        if choice == 0:
+            print("Closing...\n")
+            break
+        elif choice == 1:
+            myList.push(input("Enter an item: "))
+        elif choice == 2:
+            myList.append(input("Enter an item: "))
+        elif choice == 3:
+            myList.insertAfter(myList.searchNode(input("Enter a previous item: ")), input("Enter an item: "))
+        elif choice == 4:
+            myList.printList()
+        elif choice == 5:
+            if(myList.searchNode(input("Enter an item: "))):
+                print("Item found.")
+            else:
+                print("Item not found.")
+        elif choice == 6:
+            myList.pop()
+        elif choice == 7:
+            myList.popEnd()    
+        elif choice == 8:
+            myList.deleteNode(input("Enter an item: "))
+        else:
+            myList.clear()
+main()
+
+  
+
+
+            
