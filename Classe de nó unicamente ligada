@@ -1,0 +1,54 @@
+# node.py file
+
+"""Class to represent the node of a singly linked list"""
+class Node():
+    """Represents an individually linked node"""
+    def __init__(self, data, next = None):
+        """Instantiates a Node with a "next" pattern like "None" """
+        self.data = data
+        self.next = next
+
+# main.py file
+
+from node import Node
+
+def menu():
+    """Presents options to the user"""
+    option = -1
+    
+    while(option < 0 or option > 2):
+        print("\n1 - Fill in the list with 5 elements.\n" + "2 - Print list contents.\n" + "0 - Exit.\n")
+        option = int(input("Enter your option: "))
+        if (option < 0 or option > 2):
+            print("\tInvalid option! Type it again.")
+            
+    return option
+
+def main():
+    print("### ONLY LINKED LIST ###\n")
+    choice = 100
+    myListHead = None
+    
+    while choice != 0:
+        choice = menu()
+        
+        if choice == 0:
+            print("Exiting...\n")
+            break
+        elif choice == 1:
+            # Adds 5 nodes to the start of the linked structure
+            for count in range(1,6):
+                myListHead = Node(count, myListHead)
+        else:
+            # Print the structure content
+            if myListHead == None:
+                print("Empty list!")
+            print()
+            while myListHead != None:
+                if myListHead.data == 1:
+                    print(myListHead.data, "-> ||", end="")
+                else:
+                    print(myListHead.data, "->", end="")
+                myListHead = myListHead.next
+            print()
+main()
