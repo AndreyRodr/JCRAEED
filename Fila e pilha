@@ -1,0 +1,37 @@
+Classificação:
+
+- São listas especializadas
+- É implementável em vetores ou listas
+  - Vetores: pilhas ou filas estáticas
+  - Listas: pilhas ou filas dinâmicas
+
+- Podem ser:
+  - Homogêneas: um único tipo de dado
+  - Heterogêneas: uma struct
+
+FILA: Definição
+
+- É semelhante a uma fila de pessoas
+  - A 1° pessoa é atendida em 1° lugar
+  - As pessoas entram no fim da fila e esperam
+- FIFO (First-In, First-Out)
+  - Insercão de nós na cauda da lista
+  - Remoção de nós na cabeça da lista
+
+EXEMPLOS: 
+   - Sistemas multiusuários
+   - Spooling de impressão
+   - Pacotes enfileirados em roteadores
+
+PILHA: Definição
+
+- É semelhante a uma pilha de pratos
+  - O último prato é retirado em 1° lugar
+  - Os dados entram no fim da pilha
+- LIFO (Last-In, First-Out)
+  - Inserção de nós na cauda da lista
+  - Remoção de nós na cauda da lista
+
+EXEMPLOS:
+   - Endereço de retorno de uma função
+   - Pilhas de dados num programa
