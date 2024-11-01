@@ -1,0 +1,105 @@
+# node.py file
+
+class Node():
+    def __init__(self, data, next = None):
+        self.data = data
+        self.next = next
+        
+# queueM.py file
+
+from node import Node
+
+class QueueM():
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        
+    def isEmpty(self):
+        if self.head == None:
+            return True
+        return False
+    
+    def push(self, new_data):
+        
+        new_node = Node(new_data)
+        if self.isEmpty():
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+            
+    def print(self):
+        if self.isEmpty():
+            print("Empty queue.")
+        else:
+            temp = self.head
+            while temp:
+                print(temp.data + " ", end="")
+                temp = temp.next
+            print()
+            
+    def pop(self):
+        if self.isEmpty():
+            print("Empty queue.")
+        else:
+            penult = self.head
+            last = self.head
+            while last.next:
+                penult = last
+                last = last.next
+            penult.next = None
+            
+    def clear(self):
+        if self.isEmpty:
+            print("Empty queue.")
+        else:
+            self.head = None
+                        
+
+# main.py file
+
+from queueM import QueueM
+
+def menu():
+    option = -1
+    
+    while option < 0 or option > 4:
+        print("\n1 - Insert a new node in the queue.\n" +
+              "2 - Print the linked list\n" +
+              "3 - Delete a node from queue.\n" +
+              "4 - Clear the queue.\n"+ 
+              "0 - Exit.\n")
+        
+        option = int(input("Enter your option: "))
+        if option < 0 or option > 4:
+            print("\tInvalid option! Enter again.")
+            
+    return option
+
+def main():
+    print("### Queue's test ###\n")
+    choice = 100
+    
+    myQueue = QueueM()
+    
+    while choice != 0:
+        choice = menu()
+        
+        if choice == 0:
+            print("Closing...\n")
+            exit
+            
+        elif choice == 1:
+            myQueue.push(input("Enter an item:"))
+        
+        elif choice == 2:
+            myQueue.print()
+            
+        elif choice == 3:
+            myQueue.pop()
+            
+        else:
+            myQueue.clear()
+            
+main()            
