@@ -89,7 +89,7 @@ def main():
         
         if choice == 0:
             print("Closing...\n")
-            exit
+            break
             
         elif choice == 1:
             myQueue.push(input("Enter an item:"))
