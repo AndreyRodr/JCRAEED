@@ -1,0 +1,34 @@
+  - Grau do vértice
+    - Número de arestas conectadas a ele
+
+  - Subgrafo
+    - Consiste em um subconjunto dos vértices desse grafo e nas arestas que conectam esses vértices
+
+  - Componente conexo
+    - É um subgrafo que consiste no conjunto de vértices que são alcançáveis a partir de determinado vértice
+
+  - Caminho simples
+    - Um caminho simples é aquele que não passa pelo mesmo vértice mais de uma vez
+
+  - Ciclo
+    - Um ciclo é um caminho que começa e termina no mesmo vértice
+
+  - Aresta direcionada
+    - Aresta tem um dígrafo: tem um vértice de origem e um vértice de destino
+
+  - Única aresta direcionada
+    - Relação dos vértices: predecessor (origem) e sucessor (destino)
+    - A relação e adjacência entre eles é assimétrica
+
+  - Arestas incidentes
+    - As arestas que emanam de determinado vértice de origem são chamadas arestas incidentes
+
+  - Grafo acíclico direcionado
+    - Um caso especial de dígrafo que não contém ciclos
+    - Listas e árvores são casos de grafos direcionados
+
+  - Grafo denso
+    - Um grafo conexo com muitas arestas
+
+  - Grafo Esparso
+    - Um grafo com poucas arestas
