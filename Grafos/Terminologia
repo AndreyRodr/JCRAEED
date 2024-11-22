@@ -1,0 +1,44 @@
+Por que usar grafos?
+
+# Modelos para várias situações:
+  - Roteiro
+  - Mapa de rotas aéreas
+  - Layout de um mundo de jogo de aventura
+  - Capacidades de fluxo de comunicação de uma rede
+  - Links entre páginas na internet
+  - Relação entre alunos e cursos
+  - Pré-requisitos entre disciplinas num curso
+
+# Principais características dos grafos
+  - São um conjunto de objetos ligados
+  - Permitem ao usuário navegar de um objeto a outro
+# Grafo: categoria mais geral de coleção
+  - Engloba as categorias linear, hierárquica e não ordenada das coleções como casos especiais
+
+# Terminologia
+  - Definição
+    - Um grafo é um conjunto V de vértices e um conjunto A de arestas: cada aresta em A conecta dois dos vértices em V
+
+  - Vértice ou Nó
+    - Origem ou destino
+
+  - Aresta
+    - Ligação entre vértices
+
+  - Rótulo
+    - Vértices e arestas podem ser rotulados ou não rotulados. Quando as arestas são rotuladas com números, os números podem ser vistos como pesos e o grafo é considerado um grafo ponderado
+  
+  - Adjacência
+    - Um vértice é adjacente a outro vértice se houver uma aresta conectando os dois vértices: esses dois vértices também são chamados de vizinhos
+  
+  - Caminho
+    - É uma sequência de arestas que permite que um vértice seja alcançado a partir de outro vértice em um grafo
+  
+  - Alcançabilidade
+    - Um vértice pode ser alcançável a partir de outro vértice se e somente se houver ao menos um caminho enre os dois: o compromineto de um caminho é o número de arestas no caminho
+  
+  - Grafo conexo
+    - Quando todos os vértices têm ao menos uma ligação a outro vértice
+
+  - Grafo completo
+    - Acontece se houver uma aresta de cada vértice para todos os outros vértices
